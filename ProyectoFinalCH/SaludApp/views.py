@@ -6,3 +6,6 @@ def inicio(self):
     plantilla = loader.get_template('SaludApp/inicio.html')
     documento = plantilla.render()
     return HttpResponse(documento)
+
+def medicos(request):
+    return render(request, 'SaludApp/doctores.html')
