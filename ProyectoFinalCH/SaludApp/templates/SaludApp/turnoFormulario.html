@@ -5,13 +5,9 @@
 <body>
     <form action = "{% url 'turnoFormulario' %}" method="POST"> {% csrf_token %}
     
-        <p>Nombre: <input type="text" name="nombre"> </p>
-        <br>
-        <p>Apellido: <input type="text" name="apellido"> </p>
-        <br>
-        <p>Medico: <input type="text" name="medico_solicitado"> </p>
-        <br>
-        <p>Sede: <input type="text" name="sede"> </p>
+    <table style="color: white">
+        {{miFormulario.as_table}}
+    </table>
     
         <input type="submit" value="Enviar">
     </form>

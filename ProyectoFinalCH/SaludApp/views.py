@@ -1,16 +1,13 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
-
-from SaludApp.models import paciente_nuevo
+from SaludApp.models import paciente_nuevo,paciente
+from SaludApp.forms import paciente_formulario
 
 def inicio(self):
     plantilla = loader.get_template('SaludApp/inicio.html')
     documento = plantilla.render()
     return HttpResponse(documento)
-
-def medicos(request):
-    return render(request, 'SaludApp/doctores.html')
 
 def sede(request):
     return render(request, 'SaludApp/sede.html')
@@ -20,9 +17,21 @@ def especialidad(request):
 
 def turnoFormulario(request):
     if request.method == "POST":
-        nuevo_ingreso= paciente_nuevo(request.POST["nombre"], request.POST["apellido"],request.POST["medico_solicitado"], request.POST["sede"])
+        miFormulario = paciente_formulario(request.POST)
+        if miFormulario.is_valid():
+            informacion = miFormulario.cleaned_data
+        nombre= informacion["nombre"]
+        apellido= informacion["apellido"]
+        medico_solicitado= informacion["medico_solicitado"]
+        sede= informacion["sede"]
+        nuevo_ingreso= paciente_nuevo(nombre=nombre, apellido= apellido, medico_solicitado=medico_solicitado, sede=sede)
         nuevo_ingreso.save()
         return render(request, 'SaludApp/inicio.html')
-    return render(request, "SaludApp/turnoFormulario.html")
+    else:
+        miFormulario = paciente_formulario()
+    return render(request, "SaludApp/turnoFormulario.html", {'miFormulario':miFormulario})
+
+def busquedaMedico(request):
+    return render(request, 'SaludApp/doctores.html')
 
 
