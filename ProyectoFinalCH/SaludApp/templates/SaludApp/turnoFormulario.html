@@ -3,11 +3,14 @@
 {% load static %}
 {% block medicos %}
 <body>
-    <form action = "/turnoFormulario/" method="POST"> {% csrf_token %}
+    <form action = "{% url 'turnoFormulario' %}" method="POST"> {% csrf_token %}
     
         <p>Nombre: <input type="text" name="nombre"> </p>
+        <br>
         <p>Apellido: <input type="text" name="apellido"> </p>
+        <br>
         <p>Medico: <input type="text" name="medico_solicitado"> </p>
+        <br>
         <p>Sede: <input type="text" name="sede"> </p>
     
         <input type="submit" value="Enviar">
