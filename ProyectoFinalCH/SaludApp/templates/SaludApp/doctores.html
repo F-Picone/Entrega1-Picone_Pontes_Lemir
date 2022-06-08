@@ -1,6 +1,15 @@
 {% extends "SaludApp/padre.html" %}
 {% load static %}
 {% block medicos %}
-<h5>
-</h5>
+<body>
+    <form action = "{% url 'buscar' %}" method="GET"> 
+    <h1 style="color: white">Ingrese el apellido del medico a buscar</h1>
+        <input type="text" name="apellido">
+        <input type="submit" value="Buscar">
+    </form>
+    
+    
+    
+    
+    </body>
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
-from SaludApp.models import paciente_nuevo,paciente
+from SaludApp.models import paciente_nuevo,paciente,medico
 from SaludApp.forms import paciente_formulario
 
 def inicio(self):
@@ -33,5 +33,15 @@ def turnoFormulario(request):
 
 def busquedaMedico(request):
     return render(request, 'SaludApp/doctores.html')
+
+def buscar(request):
+    if request.GET['apellido']:
+        apellido= request.GET['apellido']
+        apellidos= medico.objects.filter(apellido=apellido)
+        apellidos= medico.objects.all()
+        return render(request, 'SaludApp/resultadosBusqueda.html', {'apellido':apellido})
+    else:
+        respuesta= f"No se ha ingresado un medico"
+        return HttpResponse(respuesta)
 
 

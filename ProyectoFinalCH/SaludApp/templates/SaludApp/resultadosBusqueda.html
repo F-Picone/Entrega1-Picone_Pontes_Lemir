@@ -1,0 +1,12 @@
+{% extends "SaludApp/padre.html" %}
+{% load static %}
+{% block medicos %}
+<body>
+    <br>
+    <h3 style="color: white"> Estamos buscando al medico: {{apellido}}</h3>
+    {% if apellido %}
+            <h3 style="color: white">Se encontro al medico :</h3>
+            <li style="color: white">{{apellido}}</li>
+    {% endif %}
+    </body>
+{% endblock %}
