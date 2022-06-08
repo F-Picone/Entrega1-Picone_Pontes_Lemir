@@ -22,8 +22,8 @@
             <div class="container px-5">
                 <a class="navbar-brand" href="{% url 'inicio' %}">Inicio</a>
                 <a class="navbar-brand" href="{% url 'medicos' %}">Medicos</a>
-                <a class="navbar-brand" href="#page-top">Especialidades</a>
-                <a class="navbar-brand" href="#page-top">Sedes</a>
+                <a class="navbar-brand" href="{% url 'especialidad' %}">Especialidades</a>
+                <a class="navbar-brand" href="{% url 'sede' %}">Sedes</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                 </div>
@@ -34,8 +34,8 @@
             <div class="masthead-content">
                 <div class="container px-5">
                     <h1 class="masthead-heading mb-0">Centros Medicos</h1>
-                    <h2 class="masthead-subheading mb-0">Franco Grabriel Lemir</h2>
-                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Sacar turno</a>
+                    <h2 class="masthead-subheading mb-0">Franco Gabriel Lemir</h2>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="{% url 'turnoFormulario' %}">Sacar turno</a>
                 </div>
             </div>
             <div class="bg-circle-1 bg-circle"></div>

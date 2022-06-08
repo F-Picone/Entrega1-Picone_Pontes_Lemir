@@ -25,3 +25,12 @@ class paciente(models.Model):
     
     def __str__(self) -> str:
         return self.nombre+" "+str(self.dni)
+
+class paciente_nuevo(models.Model):
+    nombre = models.CharField(max_length=40)
+    apellido = models.CharField(max_length=40)
+    medico_solicitado = models.CharField(max_length=40)
+    sede = models.CharField(max_length=40)
+
+    def __str__(self) -> str:
+        return self.nombre+" "+str(self.apellido)+" Doctor:"+str(self.medico_solicitado)

@@ -1,0 +1,20 @@
+
+{% extends "SaludApp/padre.html" %}
+{% load static %}
+{% block medicos %}
+<body>
+    <form action = "/turnoFormulario/" method="POST"> {% csrf_token %}
+    
+        <p>Nombre: <input type="text" name="nombre"> </p>
+        <p>Apellido: <input type="text" name="apellido"> </p>
+        <p>Medico: <input type="text" name="medico_solicitado"> </p>
+        <p>Sede: <input type="text" name="sede"> </p>
+    
+        <input type="submit" value="Enviar">
+    </form>
+    
+    
+    
+    
+    </body>
+{% endblock %}
